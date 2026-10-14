@@ -1,0 +1,6 @@
+{
+  "name": "Aura Crown & Cut AI",
+  "description": "Biometric cranial and face-shape mapping, realistic hairstyle and wig simulation, and professional salon/barbershop execution briefs.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

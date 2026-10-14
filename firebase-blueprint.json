@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered salon client or stylist profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Consultation": {
+      "title": "Consultation",
+      "description": "Biometric cranial consultation record and ticket",
+      "type": "object",
+      "properties": {
+        "ticketId": { "type": "string", "maxLength": 64 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "clientName": { "type": "string", "maxLength": 100 },
+        "faceShape": { "type": "string", "maxLength": 30 },
+        "selectedStyleName": { "type": "string", "maxLength": 120 },
+        "styleCategory": { "type": "string", "maxLength": 50 },
+        "symmetryScore": { "type": "number" },
+        "rebookingWeeks": { "type": "number" },
+        "notes": { "type": "string", "maxLength": 2000 },
+        "timestamp": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["ticketId", "userId", "clientName", "faceShape", "selectedStyleName"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile document"
+    },
+    "/users/{userId}/consultations/{consultationId}": {
+      "schema": { "$ref": "#/entities/Consultation" },
+      "description": "User hair consultation records"
+    }
+  }
+}
